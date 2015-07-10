@@ -236,7 +236,9 @@ void imagelab::newFile()
 	child->show();
 
 	CMdiChildImage *childImg = createMdiChildImage();
+	childImg->newFile();
 	childImg->show();
+	//childImg->adjustSize();
 }
 
 

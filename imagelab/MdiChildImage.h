@@ -47,7 +47,7 @@ namespace ASM {
 		}
 
 		default:
-			qWarning() << "ASM::cvMatToQImage() - cv::Mat image type not handled in switch:" << inMat.type();
+			//qWarning() << "ASM::cvMatToQImage() - cv::Mat image type not handled in switch:" << inMat.type();
 			break;
 		}
 
@@ -77,8 +77,6 @@ public:
 
 public:
 	void newFile();
-
-
-
+	//void show();
 };
 
