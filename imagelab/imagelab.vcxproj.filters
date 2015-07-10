@@ -50,6 +50,18 @@
     <ClCompile Include="GeneratedFiles\qrc_imagelab.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="MdiChildText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MdiChildText.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MdiChildText.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="MdiChildImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="imagelab.h">
@@ -61,10 +73,16 @@
     <CustomBuild Include="imagelab.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="MdiChildText.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_imagelab.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MdiChildImage.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
