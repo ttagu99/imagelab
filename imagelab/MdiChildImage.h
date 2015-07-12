@@ -63,17 +63,19 @@ namespace ASM {
 
 class CMdiChildImage : public QGraphicsView
 {
+	Q_OBJECT
+
+
+public:
+	CMdiChildImage();
+	~CMdiChildImage();
+
 private:
 	QGraphicsScene* scene; //= new QGraphicsScene();
 	//QGraphicsView* view = new QGraphicsView(scene);
 	QGraphicsPixmapItem* item; //= new QGraphicsPixmapItem(QPixmap::fromImage(image));
 	//scene->addItem(item);
 	//view->show();
-
-public:
-	CMdiChildImage();
-	~CMdiChildImage();
-
 
 public:
 	void newFile();

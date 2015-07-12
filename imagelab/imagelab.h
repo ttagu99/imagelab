@@ -27,6 +27,7 @@ private:
 
 	bool openFile(const QString &fileName);
 	CMdiChildText *activeMdiChild();
+	CMdiChildImage *activeMdiChildImage();
 protected:
 	void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
 

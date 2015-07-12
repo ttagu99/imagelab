@@ -74,24 +74,22 @@ void imagelab::updateWindowMenu()
 	QList<QMdiSubWindow *> windows = mdiArea->subWindowList();
 	separatorAct->setVisible(!windows.isEmpty());
 
-	for (int i = 0; i < windows.size(); ++i) {
-		CMdiChildText *child = qobject_cast<CMdiChildText *>(windows.at(i)->widget());
+	//for (int i = 0; i < windows.size(); ++i) {
+	//	CMdiChildImage *child = qobject_cast<CMdiChildImage *>(windows.at(i)->widget());
 
-		QString text;
-		if (i < 9) {
-			text = tr("&%1 %2").arg(i + 1)
-				.arg(child->userFriendlyCurrentFile());
-		}
-		else {
-			text = tr("%1 %2").arg(i + 1)
-				.arg(child->userFriendlyCurrentFile());
-		}
-		QAction *action = windowMenu->addAction(text);
-		action->setCheckable(true);
-		action->setChecked(child == activeMdiChild());
-		connect(action, SIGNAL(triggered()), windowMapper, SLOT(map()));
-		windowMapper->setMapping(action, windows.at(i));
-	}
+	//	QString text;
+	//	//if (i < 9) {
+	//	//	text = tr("&%1 %2").arg(i + 1);// .arg(child->userFriendlyCurrentFile());
+	//	//}
+	//	//else {
+	//	//	text = tr("%1 %2").arg(i + 1);// .arg(child->userFriendlyCurrentFile());
+	//	//}
+	//	QAction *action = windowMenu->addAction(text);
+	//	action->setCheckable(true);
+	//	action->setChecked(child == activeMdiChildImage());
+	//	connect(action, SIGNAL(triggered()), windowMapper, SLOT(map()));
+	//	windowMapper->setMapping(action, windows.at(i));
+	//}
 }
 
 
@@ -102,6 +100,14 @@ CMdiChildText *imagelab::activeMdiChild()
 		return qobject_cast<CMdiChildText *>(activeSubWindow->widget());
 	return 0;
 }
+
+CMdiChildImage *imagelab::activeMdiChildImage()
+{
+	if (QMdiSubWindow *activeSubWindow = mdiArea->activeSubWindow())
+		return qobject_cast<CMdiChildImage *>(activeSubWindow->widget());
+	return 0;
+}
+
 
 
 void imagelab::createActions()
@@ -231,13 +237,14 @@ void imagelab::createMenus()
 
 void imagelab::newFile()
 {
-	CMdiChildText *child = createMdiChildText();
-	child->newFile();
-	child->show();
+	//CMdiChildText *child = createMdiChildText();
+	//child->newFile();
+	//child->show();
 
 	CMdiChildImage *childImg = createMdiChildImage();
 	childImg->newFile();
 	childImg->show();
+	mdiArea->activeSubWindow()->adjustSize();
 	//childImg->adjustSize();
 }
 
