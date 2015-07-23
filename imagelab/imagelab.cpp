@@ -275,3 +275,45 @@ CMdiChildImage *imagelab::createMdiChildImage()
 
 	return child;
 }
+
+
+void imagelab::open()
+{
+  QString fileName = QFileDialog::getOpenFileName(this);
+  if (!fileName.isEmpty()) {
+    QMdiSubWindow *existing = findMdiChild(fileName);
+    if (existing) {
+      mdiArea->setActiveSubWindow(existing);
+      return;
+    }
+
+    if (openFile(fileName))
+      statusBar()->showMessage(tr("File loaded"), 2000);
+  }
+}
+
+bool imagelab::openFile(const QString &fileName)
+{
+  CMdiChildImage *child = createMdiChildImage();
+  const bool succeeded = child->loadFile(fileName);
+  if (succeeded)
+  {
+    child->show();
+    mdiArea->activeSubWindow()->adjustSize();
+  }
+  else
+    child->close();
+  return succeeded;
+}
+
+QMdiSubWindow *imagelab::findMdiChild(const QString &fileName)
+{
+  QString canonicalFilePath = QFileInfo(fileName).canonicalFilePath();
+
+  foreach(QMdiSubWindow *window, mdiArea->subWindowList()) {
+    CMdiChildImage *mdiChild = qobject_cast<CMdiChildImage *>(window->widget());
+    if (mdiChild->currentFile() == canonicalFilePath)
+      return window;
+  }
+  return 0;
+}

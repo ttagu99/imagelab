@@ -1,7 +1,7 @@
 #ifndef MDICHILDTEXT_H
 #define MDICHILDTEXT_H
 #include <QTextEdit>
-
+#include <QtWidgets>
 class CMdiChildText : public QTextEdit
 {
 	Q_OBJECT

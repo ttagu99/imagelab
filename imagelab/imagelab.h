@@ -70,10 +70,11 @@ private:
 	private slots:
 	void updateWindowMenu();
 	void newFile();
+    void open();
 
 	CMdiChildText *createMdiChildText();
 	CMdiChildImage *createMdiChildImage();
-
+    QMdiSubWindow *findMdiChild(const QString &fileName);
 };
 
 #endif // IMAGELAB_H

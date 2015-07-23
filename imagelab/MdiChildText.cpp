@@ -1,5 +1,5 @@
 #include "MdiChildText.h"
-#include <QtWidgets>
+
 
 CMdiChildText::CMdiChildText()
 {
