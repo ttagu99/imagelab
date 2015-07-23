@@ -24,10 +24,7 @@ void CMdiChildImage::newFile()
     static int nNewImgCnt = 0;
     nNewImgCnt++;
 
-    ostringstream ostream;
-    ostream << "imagelab" << nNewImgCnt << ".bmp";
-    string str = ostream.str();
-    
+    string str = "imagelab" + to_string(nNewImgCnt) + ".bmp";
     m_strCurFile.fromStdString(str);
     setItemScene(m_Img);
 }
