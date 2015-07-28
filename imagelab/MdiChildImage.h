@@ -76,12 +76,15 @@ private:
   QGraphicsPixmapItem* item; 
   Mat m_Img;
   QString m_strCurFile;
-
+  bool isUntitled;
 
 public:
   void newFile();
   bool loadFile(const QString &fileName);
   QString  currentFile() { return m_strCurFile; }
+  bool save();
+  bool saveAs();
+  bool saveFile(const QString &fileName);
 
 
 private:

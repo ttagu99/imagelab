@@ -317,3 +317,9 @@ QMdiSubWindow *imagelab::findMdiChild(const QString &fileName)
   }
   return 0;
 }
+
+void imagelab::save()
+{
+	if (activeMdiChildImage() && activeMdiChildImage()->save())
+		statusBar()->showMessage(tr("File saved"), 2000);
+}

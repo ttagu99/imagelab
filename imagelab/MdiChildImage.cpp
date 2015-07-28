@@ -50,3 +50,28 @@ void CMdiChildImage::setItemScene(Mat img)
   scene->addItem(item);
   setScene(scene);
 }
+
+
+bool CMdiChildImage::save()
+{
+	if (isUntitled) {
+		return saveAs();
+	}
+	else {
+		return saveFile(m_strCurFile);
+	}
+}
+
+bool CMdiChildImage::saveAs()
+{
+	QString fileName = QFileDialog::getSaveFileName(this, tr("Save As"),m_strCurFile,"*.jpg");
+	if (fileName.isEmpty())
+		return false;
+
+	return imwrite(fileName.toStdString(),m_Img);
+}
+
+bool CMdiChildImage::saveFile(const QString &fileName)
+{
+	return imwrite(fileName.toStdString(), m_Img);
+}

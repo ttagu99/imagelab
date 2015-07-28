@@ -71,6 +71,7 @@ private:
 	void updateWindowMenu();
 	void newFile();
     void open();
+	void save();
 
 	CMdiChildText *createMdiChildText();
 	CMdiChildImage *createMdiChildImage();
